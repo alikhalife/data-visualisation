@@ -585,7 +585,7 @@
                 </a>
 
                 <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fec.europa.eu%2Feurostat%2Fstatistics-explained%2Findex.php%3Ftitle%3DArchive%3ACrime_statistics%2Ffr"
-                  target="_blank" onclick="window.open(this.href,&#39;&#39;,&#39;scrollbars=1,resizable=1,width=400,height=620&#39;);return false;">
+                  target="_blank" onclick="window.open(this.href:#39#39#39,scrollbars=1,resizable=1,width=400,height=620&#39;);return false;">
                   <i class="fa fa-facebook-official fa-2x" aria-hidden="true" style="color: #3b5998;"></i>
                 </a>
                 <a href="http://plus.google.com/share?app=110&amp;url=http%3A%2F%2Fec.europa.eu%2Feurostat%2Fstatistics-explained%2Findex.php%3Ftitle%3DArchive%3ACrime_statistics%2Ffr"
@@ -613,6 +613,9 @@
           </div>
 
           <h1 id="firstHeading" class="firstHeading">Archive:Crime statistics </h1>
+
+          <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+
 
           <div id="bodyContent" class="bodyContent">
 
@@ -799,6 +802,9 @@
                 <span class="mw-headline" id="Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police">Crimes recorded by the police</span>
               </h3>
 
+              <div class="chart">
+                <canvas id="myChart" width="800px" height="500px"></canvas>
+              </div>
 
               <table cellspacing="0" cellpadding="0" id="table1">
                 <caption> Table 1: Offences recorded by the police, 2002-12</caption>
@@ -2062,9 +2068,11 @@
 
     <!--END PAGE-->
   </div>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
-    <script src="./assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 
 </html>
