@@ -10,23 +10,23 @@
   <link rel="shortcut icon" href="http://ec.europa.eu/skins/common/logos/favicon.gif">
   <link rel="alternate" type="application/atom+xml" title="Flux Atom de Statistics Explained" href="http://ec.europa.eu/eurostat/statistics-explained/index.php?title=Special:RecentChanges&amp;feed=atom">
 
-  <link rel="stylesheet" href="./assets/EMPM_MainPage.css">
-  <link rel="stylesheet" href="./assets/StatexpBPM.css">
-  <link rel="stylesheet" href="./assets/styles.css">
-  <link rel="stylesheet" href="./assets/styles(1).css">
-  <link rel="stylesheet" href="./assets/ext.cite.css">
-  <link rel="stylesheet" href="./assets/jquery.makeCollapsible.css">
-  <link rel="stylesheet" href="./assets/jquery.tipsy.css">
-  <link rel="stylesheet" href="./assets/jquery.suggestions.css">
-  <link rel="stylesheet" href="./assets/mediawiki.searchSuggest.css">
-  <link rel="stylesheet" href="./assets/mediawiki.action.view.postEdit.css">
+  <link rel="stylesheet" href="./assets/css/EMPM_MainPage.css">
+  <link rel="stylesheet" href="./assets/css/StatexpBPM.css">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/styles(1).css">
+  <link rel="stylesheet" href="./assets/css/ext.cite.css">
+  <link rel="stylesheet" href="./assets/css/jquery.makeCollapsible.css">
+  <link rel="stylesheet" href="./assets/css/jquery.tipsy.css">
+  <link rel="stylesheet" href="./assets/css/jquery.suggestions.css">
+  <link rel="stylesheet" href="./assets/css/mediawiki.searchSuggest.css">
+  <link rel="stylesheet" href="./assets/css/mediawiki.action.view.postEdit.css">
   <meta name="ResourceLoaderDynamicStyles" content="">
-  <link href="./assets/style.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/font-awesome.min.css">
-  <link rel="stylesheet" href="./assets/statexpflat.css">
-  <link rel="stylesheet" href="./assets/statexpflat-grid.css">
+  <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./assets/css/statexpflat.css">
+  <link rel="stylesheet" href="./assets/css/statexpflat-grid.css">
 
   <style>
     a:lang(ar),
@@ -799,6 +799,7 @@
                 <span class="mw-headline" id="Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police">Crimes recorded by the police</span>
               </h3>
 
+              <div><canvas id="myChart" width="400" height="400" style="display:block"></canvas></div>
 
               <table cellspacing="0" cellpadding="0" id="table1">
                 <caption> Table 1: Offences recorded by the police, 2002-12</caption>
@@ -807,6 +808,7 @@
                     <th>N°</th>
                     <th>Country</th>
                     <th colspan="12">Number (in thousands)</th>
+                    <th>year</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -2062,9 +2064,10 @@
 
     <!--END PAGE-->
   </div>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
-    <script src="./assets/script.js"></script>
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
