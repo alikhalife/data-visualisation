@@ -1,4 +1,4 @@
-
+// charts build 
 function BuildChart(labels, values, chartTitle) {
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
@@ -35,40 +35,9 @@ function BuildChart(labels, values, chartTitle) {
     return myChart;
 }
 
+//Get data from table
+var table = document.getElementById("table1")
 
-// HTML To JSON Script 
-// *Forked* from https://johndyer.name/html-table-to-json/
-var table = document.getElementById('table1');
-var json = []; // first row needs to be headers 
-var headers = [];
-for (var i = 0; i < table.rows[0].cells.length; i++) {
-    headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
-}
-
-// go through cells 
-for (var i = 1; i < table.rows.length; i++) {
-    var tableRow = table.rows[i];
-    var rowData = {};
-    for (var j = 0; j < tableRow.cells.length; j++) {
-        rowData[headers[j]] = tableRow.cells[j].innerHTML;
-    }
-    json.push(rowData);
-}
-console.table(json);
-
-// Map json values back to label array
-var labels = json.map(function (e) {
-    return e.country;
-});
-console.log(labels);
-
-// Map json values back to values array
-var values = json.map(function (e) {
-    return e['number(inthousands)'];
-});
-console.log(values);
-
-var myChart = BuildChart(labels, values, "Items Sold Over Time");
 
 
 
@@ -81,33 +50,36 @@ var myChart = BuildChart(labels, values, "Items Sold Over Time");
 
 // Live Updating Charts from JSON Data API
 
-var dataPoints = [];
-var chart = new CanvasJS.Chart("chartContainer",{
-    title:{
-        text:"Rendering Chart with dataPoints from External JSON"
-    },
-    data: [{
-        type: "line",
-        dataPoints : dataPoints,
-    }]
-});
+window.onload = function() {
+	var dataPoints = [];
+	var chart;
+	$.getJSON("https://canvasjs.com/services/data/datapoints.php", function(data) {  
+		$.each(data, function(key, value){
+			dataPoints.push({x: value[0], y: parseInt(value[1])});
+		});
+		chart = new CanvasJS.Chart("chartContainer",{
+			title:{
+				text:"Datapoints.php"
+			},
+			data: [{
+				type: "line",
+				dataPoints : dataPoints,
+			}]
+		});
+		chart.render();
+		updateChart();
+	});
 
-$.getJSON("https://canvasjs.com/services/data/datapoints.php", function(data) {  
-    $.each(data, function(key, value){
-        dataPoints.push({x: value[0], y: parseInt(value[1])});
-    });
-    chart.render();
-});
-
-function updateChart() {
-    $.getJSON("https://canvasjs.com/services/data/datapoints.php" + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json", function(data) {
-        $.each(data, function(key, value) {
-            dataPoints.push({
-                x: parseInt(value[0]),
-                y: parseInt(value[1])
-            });
-       });
-       chart.render();
-       setTimeout(function(){updateChart()}, 1000);
-    });
- }
+	function updateChart() {
+	$.getJSON("https://canvasjs.com/services/data/datapoints.php" + (dataPoints.length + 1) + "&ystart=" + (dataPoints[dataPoints.length - 1].y) + "&length=1&type=json", function(data) {
+		$.each(data, function(key, value) {
+			dataPoints.push({
+			x: parseInt(value[0]),
+			y: parseInt(value[1])
+			});
+		});
+		chart.render();
+		setTimeout(function(){updateChart()}, 1000);
+	});
+	}
+}
