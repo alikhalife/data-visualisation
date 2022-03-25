@@ -95,32 +95,32 @@ var chart = BuildChart(labels, lines, " Offences recorded by the police, 2002-12
 
 // Live Chart with API
 
-// window.addEventListener("load", function () {
-//   var dataPoints = [];
-//   var chart;
+window.addEventListener("load", function () {
+  var dataPoints = [];
+  var chart;
 
-//   fetch("https://canvasjs.com/services/data/datapoints.php", {cache: "no-store"})
-//       .then((response) => {
-//           return response.json()
-//       })
-//       .then((data) => {
-//           data.forEach(element => {
-//               dataPoints.push({ x: element[0], y: element[1] })
-//           });
-//           chart = new CanvasJS.Chart("remoteDataChart", {
-//               title: {
-//                   text: "Datapoints.php"
-//               },
-//               data: [{
-//                   type: "line",
-//                   dataPoints: dataPoints,
-//               }]
-//           });
-//           console.log(chart)
-//           chart.render();
-//           // updateChart();
+  fetch("https://canvasjs.com/services/data/datapoints.php", {cache: "no-store"})
+      .then((response) => {
+          return response.json()
+      })
+      .then((data) => {
+          data.forEach(element => {
+              dataPoints.push({ x: element[0], y: element[1] })
+          });
+          chart = new CanvasJS.Chart("remoteDataChart", {
+              title: {
+                  text: "Datapoints.php"
+              },
+              data: [{
+                  type: "bar",
+                  dataPoints: dataPoints,
+              }]
+          });
+          console.log(chart)
+          chart.render();
+          // updateChart();
 
-//       })
+      })
 
-//   })
+  })
 
