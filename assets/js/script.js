@@ -55,30 +55,59 @@ var chart = BuildChart();
 
 
 // build chart 2
-var ctx2 = document.getElementById('chart2').getContext('2d')
-
-var chart2 = new chart(ctx2, {    
-    data : {
-        type : 'line',
-        labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-        ],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-    },
+function BuildChart2(labels, values, chartTitle) {
+    var ctx2 = document.getElementById("chart2").getContext('2d');
+    var myChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            datasets: [{
+                label: labels,
+                data: values,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.1
+            }]
+        },
         options: {
-            responsive : true,
+            responsive: true, // Instruct chart js to respond nicely.
+            legend: false
         }
-})
+    });
+    return myChart2;
+}
+
+var chart2 = BuildChart2()
+
+var table2 = document.getElementById('table2');
+var json = []; // first row needs to be headers 
+var headers = [];
+for (var i = 0; i < table2.rows[0].cells.length; i++) {
+    headers[i] = table2.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, '');
+}
+
+// go through cells 
+for (var i = 1; i < table2.rows.length; i++) {
+    var tableRow = table2.rows[i];
+    var rowData = {};
+    for (var j = 0; j < tableRow.cells.length; j++) {
+        rowData[headers[j]] = tableRow.cells[j].innerHTML;
+    }
+    json.push(rowData);
+}
+console.log(json);
+
+// Map json values back to label array
+var labels = json.map(function (e) {
+    return e.country;
+});
+console.log(labels);
+
+// Map json values back to values array
+var values = json.map(function (e) {
+    return e.values;
+});
+console.log(values);
+
 
 
 
