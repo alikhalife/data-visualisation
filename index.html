@@ -10,6 +10,9 @@
   <link rel="shortcut icon" href="http://ec.europa.eu/skins/common/logos/favicon.gif">
   <link rel="alternate" type="application/atom+xml" title="Flux Atom de Statistics Explained" href="http://ec.europa.eu/eurostat/statistics-explained/index.php?title=Special:RecentChanges&amp;feed=atom">
 
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js%22%3E"></script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js%22%3E"></script>
+
   <link rel="stylesheet" href="./assets/css/EMPM_MainPage.css">
   <link rel="stylesheet" href="./assets/css/StatexpBPM.css">
   <link rel="stylesheet" href="./assets/css/styles.css">
@@ -27,6 +30,8 @@
   <link rel="stylesheet" href="./assets/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/statexpflat.css">
   <link rel="stylesheet" href="./assets/css/statexpflat-grid.css">
+
+  
 
   <style>
     a:lang(ar),
@@ -613,6 +618,7 @@
           </div>
 
           <h1 id="firstHeading" class="firstHeading">Archive:Crime statistics </h1>
+          <div><canvas id="remoteDataChart" width="400" height="400" style="display:block"></canvas></div>
 
           <div id="bodyContent" class="bodyContent">
 
@@ -808,17 +814,14 @@
                     <th>N°</th>
                     <th>Country</th>
                     <th colspan="12">Number (in thousands)</th>
-                    <th>year</th>
+                
                   </tr>
                 </thead>
                 <tbody>
 
                   <tr>
-
-                    <th>
-
-                    </th>
                     <th dir="ltr"></th>
+                    
                     <th>2002</th>
                     <th>2003</th>
                     <th>2004</th>
@@ -831,6 +834,7 @@
                     <th>2011</th>
                     <th>2012</th>
                   </tr>
+
                   <tr>
                     <th>
                       <div>1</div>
@@ -2068,6 +2072,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src="./assets/js/script.js"></script>
+
+  
+
+      
 </body>
 
 </html>
